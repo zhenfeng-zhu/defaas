@@ -2,6 +2,7 @@ import { Head } from "$fresh/runtime.ts";
 import Counter from "../islands/Counter.tsx";
 import Hello from "../islands/Hello.tsx";
 import Demo from "../islands/Demo.tsx";
+import Dra from "../islands/Dra.tsx";
 
 export default function Home() {
   return (
@@ -23,6 +24,8 @@ export default function Home() {
 
         <Hello start={1} />
         <Demo />
+        <Dra />
+
       </div>
     </>
   );
