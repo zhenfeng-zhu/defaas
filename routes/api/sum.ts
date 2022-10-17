@@ -26,5 +26,5 @@ export function handler(a: int, b: int) {
 
   console.log(handler(1, 1));
 
-  return Response.json({'a': handler(1, 2)});
+  return Response.json({ "a": handler(1, 2) });
 };

@@ -1,5 +1,7 @@
 import { Head } from "$fresh/runtime.ts";
 import Counter from "../islands/Counter.tsx";
+import Hello from "../islands/Hello.tsx";
+import Demo from "../islands/Demo.tsx";
 
 export default function Home() {
   return (
@@ -18,6 +20,9 @@ export default function Home() {
           ./routes/index.tsx file, and refresh.
         </p>
         <Counter start={3} />
+
+        <Hello start={1} />
+        <Demo />
       </div>
     </>
   );
