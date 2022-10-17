@@ -1,4 +1,4 @@
-# fresh project
+# Deno micro faas for web3 project
 
 ### Usage
 
