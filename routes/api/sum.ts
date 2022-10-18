@@ -3,7 +3,7 @@ import { HandlerContext } from "$fresh/server.ts";
 export const handler = async (
   _req: Request,
   _ctx: HandlerContext,
-): Response => {
+): Promise<Response> => {
   const prefix = "data:text/typescript,";
   const s = `
 import axiod from "https://deno.land/x/axiod/mod.ts";
