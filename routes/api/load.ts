@@ -24,5 +24,5 @@ export const handler = async (
   const content = files[payload.func].content;
   const mod = await importString(`${content}`);
   const data = await mod.handler(...payload.params);
-  return Response.json({data});
+  return Response.json({ data });
 };
