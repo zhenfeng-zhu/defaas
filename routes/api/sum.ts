@@ -4,27 +4,29 @@ export const handler = async (
   _req: Request,
   _ctx: HandlerContext,
 ): Promise<Response> => {
+  console.log(_req.method);
+  if (_req.method != "POST") {
+    return Response.json({ "error": "only support post" });
+  }
+
+  const payload = await _req.json();
+  console.log(payload);
+
   const prefix = "data:text/typescript,";
   const s = `
 import axiod from "https://deno.land/x/axiod/mod.ts";
 
 
-const { data } = await axiod<{ delay: string }>(
-  "https://postman-echo.com/delay/2"
-);
-
 export function handler(a: int, b: int) {
-    console.log(data);
+    console.log(a, b);
     return a+b;
 }
 `;
 
   console.log(s);
 
-  const { handler } = await import(`${prefix}${s}`);
-  console.log(handler);
+  const mod = await import(`${prefix}${s}`);
+  const params = payload.params;
 
-  console.log(handler(1, 1));
-
-  return Response.json({ "a": handler(1, 2) });
+  return Response.json({ "a": mod.handler(...params) });
 };
