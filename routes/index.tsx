@@ -9,10 +9,10 @@ export default function Home() {
       <div class="p-4 mx-auto max-w-screen-md">
         <img
           src="/nonce.png"
-          class="w-32 h-32"
+          class="w-16 h-16"
           alt="the fresh logo: a sliced lemon dripping with juice"
         />
-        <p class="my-6">
+        <p class="my-10">
           Welcome to NonceGeek Deno Micro FaaS: FaaS Based on Blockchain
         </p>
 

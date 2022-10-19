@@ -1,16 +1,11 @@
 import { HandlerContext } from "$fresh/server.ts";
+import { importString } from "import";
 
 export const handler = async (
   _req: Request,
   _ctx: HandlerContext,
 ): Promise<Response> => {
   console.log(_req.method);
-  if (_req.method != "POST") {
-    return Response.json({ "error": "only support post" });
-  }
-
-  const payload = await _req.json();
-  console.log(payload);
 
   const prefix = "data:text/typescript,";
   const s = `
@@ -25,8 +20,7 @@ export function handler(a: int, b: int) {
 
   console.log(s);
 
-  const mod = await import(`${prefix}${s}`);
-  const params = payload.params;
+  const mod = await importString(`${s}`);
 
-  return Response.json({ "a": mod.handler(...params) });
+  return Response.json({ "a": mod.handler(1, 10) });
 };

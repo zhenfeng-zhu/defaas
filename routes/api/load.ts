@@ -1,6 +1,6 @@
 import { HandlerContext } from "$fresh/server.ts";
 import axiod from "axiod";
-import { importString } from "https://deno.land/x/import@v0.1.6/mod.ts";
+import { importString } from "import";
 
 const PREFIX = "data:text/typescript,";
 
