@@ -8,13 +8,6 @@ serve({
   ssr: true,
   unocss,
   middlewares: [
-    {
-      name: "cors-middleware",
-      async fetch(request, { next }) {
-        // next() will invoke a respective route function 
-        const response = await next();
-        return cors(request, response);
-      },
-    },
+
   ],
 });
