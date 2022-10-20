@@ -24,7 +24,7 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "PROJECT_NAME" # Your deploy project name
+          project: "ultrafaas" # Your deploy project name
           entrypoint: "server.js"
           root: .ultra
           import-map: importMap.server.json
