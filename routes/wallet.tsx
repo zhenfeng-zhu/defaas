@@ -1,7 +1,5 @@
 import { Head, Link } from "aleph/react";
 
-
-
 export default function Wallet() {
   return (
     <div className="w-9/10 max-w-150 mx-auto mt-15">
@@ -11,11 +9,13 @@ export default function Wallet() {
       </Head>
       <h1 className="flex items-center justify-between text-5xl font-200">
         <span>Todos</span>
-        {todos.length > 0 && (
-          <em className="text-3xl text-gray-300">{todos.filter((todo) => todo.completed).length}/{todos.length}</em>
-        )}
       </h1>
+      <div className="mockup-code mt-9">
+        <pre data-prefix="$"><code>npm i daisyui</code></pre>
       </div>
-    
+      <div className="mockup-code mt-9">
+        <pre><code>without prefix</code></pre>
+      </div>
+    </div>
   );
 }
