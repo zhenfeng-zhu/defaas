@@ -1,5 +1,8 @@
-#!/usr/bin/env -S deno run -A --watch=static/,routes/
+import dev from "aleph/dev";
 
-import dev from "$fresh/dev.ts";
-
-await dev(import.meta.url, "./main.ts");
+dev({
+  baseUrl: import.meta.url,
+  // To generate the `./routes/_export.ts` module for serverless env
+  // that doesn't support dynamic import.
+  generateExportTs: true,
+});

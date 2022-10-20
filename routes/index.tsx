@@ -1,52 +1,60 @@
-import { Head } from "$fresh/runtime.ts";
+import { Head, Link } from "aleph/react";
 
-export default function Home() {
+const externalLinks = [
+  ["Get Started", "https://alephjs.org/docs/get-started"],
+  ["Docs", "https://alephjs.org/docs"],
+  ["Github", "https://github.com/alephjs/aleph.js"],
+];
+
+export default function Index() {
   return (
-    <>
+    <div
+      className="w-screen flex flex-col items-center justify-center"
+      style={{
+        height: "calc(100vh - 2 * 80px)",
+      }}
+    >
       <Head>
-        <title>FaaS Based on Blockchain</title>
+        <title>Aleph.js</title>
+        <meta name="description" content="The Fullstack Framework in Deno." />
       </Head>
-      <div class="p-4 mx-auto max-w-screen-md">
-        <img
-          src="/nonce.png"
-          class="w-16 h-16"
-          alt="the fresh logo: a sliced lemon dripping with juice"
-        />
-        <p class="my-10">
-          Welcome to NonceGeek Deno Micro FaaS: FaaS Based on Blockchain
-        </p>
-
-        <li>transparent, open, and immutable on-chain functions</li>
-        <p>
-          All code snippets, functions, and modules are stored in the Arweave
-          blockchain, and dynamically loaded into memory while the FaaS service
-          is running. The functions are transparent, open, and immutable.
-          Therefore, it is possible to share the uploaded functions among users
-          through an open function market, thus making F (in FaaS) a Lego
-          building block.
-        </p>
-        <br></br>
-        <li>allow state storage</li>
-        <p>
-          Through the functions, users can store the state on each blockchain
-          network, and read the state from it. The authentication is realized
-          through the signature that follows the Ethereum standard, which breaks
-          through the stateless limitation of the traditional FaaS system.
-        </p>
-
-        <br></br>
-
-        <h3>Usage</h3>
-        <script src="https://gist.github.com/zhenfeng-zhu/3581c289773ad8afcd9fe7ebdddeeb9f.js">
-        </script>
-
-        <br></br>
-        <h3>Avaliable function list</h3>
-        <br></br>
-
-        <script src="https://gist.github.com/zhenfeng-zhu/51ceeefe042a23dc6c0f218ec415ff16.js">
-        </script>
+      <p className="logo">
+        <img src="./assets/logo.svg" width="75" height="75" title="Aleph.js" />
+      </p>
+      <h1 className="text-3xl font-bold mt-2">
+        The Fullstack Framework in Deno.
+      </h1>
+      <p className="text-center text-md text-gray-800">
+        <strong>Aleph.js</strong> gives you the best developer experience for building web applications<br />{" "}
+        with modern toolings.
+      </p>
+      <div className="flex gap-4 mt-2">
+        {externalLinks.map(([text, href]) => (
+          <a
+            className="flex items-center gap-1.5 text-gray-600 hover:text-gray-900"
+            href={href}
+            target="_blank"
+            key={href}
+          >
+            {text}
+            <svg className="w-4 h-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M14 5C13.4477 5 13 4.55228 13 4C13 3.44772 13.4477 3 14 3H20C20.2652 3 20.5196 3.10536 20.7071 3.29289C20.8946 3.48043 21 3.73478 21 4L21 10C21 10.5523 20.5523 11 20 11C19.4477 11 19 10.5523 19 10L19 6.41422L9.70711 15.7071C9.31658 16.0976 8.68342 16.0976 8.29289 15.7071C7.90237 15.3166 7.90237 14.6834 8.29289 14.2929L17.5858 5H14ZM3 7C3 5.89543 3.89543 5 5 5H10C10.5523 5 11 5.44772 11 6C11 6.55228 10.5523 7 10 7H5V19H17V14C17 13.4477 17.4477 13 18 13C18.5523 13 19 13.4477 19 14V19C19 20.1046 18.1046 21 17 21H5C3.89543 21 3 20.1046 3 19V7Z"
+                fill="#aaa"
+              />
+            </svg>
+          </a>
+        ))}
       </div>
-    </>
+      <nav className="mt-8">
+        <Link
+          className="inline-flex items-center justify-center w-60 h-12 border-1 border-gray-300 rounded-full hover:border-gray-400 transition-colors duration-300"
+          role="button"
+          to="/todos"
+        >
+          Todos App Demo
+        </Link>
+      </nav>
+    </div>
   );
 }

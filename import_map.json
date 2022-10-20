@@ -1,14 +1,18 @@
 {
   "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.1.2/",
-    "preact": "https://esm.sh/preact@10.11.0",
-    "preact/": "https://esm.sh/preact@10.11.0/",
-    "preact-render-to-string": "https://esm.sh/*preact-render-to-string@5.2.4",
-    "@preact/signals": "https://esm.sh/*@preact/signals@1.0.3",
-    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.0.1",
-    "twind": "https://esm.sh/twind@0.16.17",
-    "twind/": "https://esm.sh/twind@0.16.17/",
-    "axiod": "https://deno.land/x/axiod/mod.ts",
-    "import": "https://deno.land/x/import/mod.ts"
-  }
+    "~/": "./",
+    "std/": "https://deno.land/std@0.155.0/",
+    "aleph/": "https://deno.land/x/aleph@1.0.0-beta.20/",
+    "aleph/server": "https://deno.land/x/aleph@1.0.0-beta.20/server/mod.ts",
+    "aleph/dev": "https://deno.land/x/aleph@1.0.0-beta.20/server/dev.ts",
+    "@unocss/core": "https://esm.sh/@unocss/core@0.45.26",
+    "@unocss/preset-uno": "https://esm.sh/@unocss/preset-uno@0.45.26",
+    "aleph/react": "https://deno.land/x/aleph@1.0.0-beta.20/runtime/react/mod.ts",
+    "aleph/react-client": "https://deno.land/x/aleph@1.0.0-beta.20/runtime/react/client.ts",
+    "aleph/react-server": "https://deno.land/x/aleph@1.0.0-beta.20/runtime/react/server.ts",
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "react-dom/": "https://esm.sh/react-dom@18.2.0/"
+  },
+  "scopes": {}
 }
