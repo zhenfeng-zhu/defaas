@@ -1,78 +1,78 @@
 import { serve } from "https://deno.land/std@0.159.0/http/server.ts";
 import { createRouter, createServer } from "ultra/server.ts";
-import { CssBaseline, ThemeProvider } from "@mui/material";
 import App from "./src/app.tsx";
-import theme from "./theme.ts";
-import { emotionTransformStream } from "./server/emotion.ts";
-import { importString } from "import";
+
+// Twind
+import "./src/twind/twind.ts";
+
+// Wouter
+import { Router } from "wouter";
+import staticLocationHook from "wouter/static-location";
+import { SearchParamsProvider } from "./src/wouter/index.tsx";
+
+// React Helmet Async
+import { HelmetProvider } from "react-helmet-async";
+import useServerInsertedHTML from "ultra/hooks/use-server-inserted-html.js";
+
+// React Query
+import { QueryClientProvider } from "@tanstack/react-query";
+import { useDehydrateReactQuery } from "./src/react-query/useDehydrateReactQuery.tsx";
+import { queryClient } from "./src/react-query/query-client.ts";
 
 const server = await createServer({
-  importMapPath: Deno.env.get("ULTRA_MODE") === "development"
-    ? import.meta.resolve("./importMap.dev.json")
-    : import.meta.resolve("./importMap.json"),
+  importMapPath: import.meta.resolve("./importMap.json"),
   browserEntrypoint: import.meta.resolve("./client.tsx"),
 });
 
-/**
- * Create our API router
- */
-const api = createRouter();
+// deno-lint-ignore no-explicit-any
+const helmetContext: Record<string, any> = {};
 
-/**
- * An example API route
- */
-api.get("/posts", (context) => {
-  return context.json([{
-    id: 1,
-    title: "Test Post",
-  }]);
-});
+function ServerApp({ context }: any) {
+  useServerInsertedHTML(() => {
+    const { helmet } = helmetContext;
+    return (
+      <>
+        {helmet.title.toComponent()}
+        {helmet.priority.toComponent()}
+        {helmet.meta.toComponent()}
+        {helmet.link.toComponent()}
+        {helmet.script.toComponent()}
+      </>
+    );
+  });
 
-api.post("/load", async (context) => {
-  const s = `
-  import axiod from "https://deno.land/x/axiod/mod.ts";
-  
-  
-  export function handler(a: int, b: int) {
-      console.log(a, b);
-      return a+b;
-  }
-  `;
+  useDehydrateReactQuery(queryClient);
 
-  console.log(s);
+  const requestUrl = new URL(context.req.url);
 
-  const mod = await importString(`${s}`);
-  return context.json([{
-    id: 1,
-    title: "Test Post",
-    data: mod.handler(1, 11),
-  }]);
-});
-
-/**
- * Mount the API router to /api
- */
-server.route("/api", api);
+  return (
+    <HelmetProvider context={helmetContext}>
+      <QueryClientProvider client={queryClient}>
+        <Router hook={staticLocationHook(requestUrl.pathname)}>
+          <SearchParamsProvider value={requestUrl.searchParams}>
+            <App />
+          </SearchParamsProvider>
+        </Router>
+      </QueryClientProvider>
+    </HelmetProvider>
+  );
+}
 
 server.get("*", async (context) => {
+  // clear query cache
+  queryClient.clear();
+
   /**
    * Render the request
    */
-  const result = await server.render(
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <App />
-    </ThemeProvider>,
-    {
-      generateStaticHTML: true,
-    },
-  );
+  const result = await server.render(<ServerApp context={context} />);
 
-  const transformed = emotionTransformStream(result);
-
-  return context.body(transformed, 200, {
-    "content-type": "text/html",
+  return context.body(result, 200, {
+    "content-type": "text/html; charset=utf-8",
   });
 });
 
-serve(server.fetch);
+if (import.meta.main) {
+  serve(server.fetch);
+}
+export default server;

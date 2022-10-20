@@ -1,31 +1,31 @@
-import useAsset from "ultra/hooks/use-asset.js";
-import { Button } from "@mui/material";
+// Twind
+import { TwindProvider } from "./twind/TwindProvider.tsx";
 
 export default function App() {
+  console.log("Hello world!");
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <title>with-material-ui</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        />
-        <link rel="shortcut icon" href={useAsset("/favicon.ico")} />
-      </head>
-      <body style={{ padding: "1em" }}>
-        <Button
-          variant="contained"
-          onClick={() => alert("Hello World from a Material UI button!!")}
-        >
-          Say Hello World
-        </Button>
-      </body>
-    </html>
+    <TwindProvider>
+      <html lang="en">
+        <head>
+          <meta charSet="utf-8" />
+          <title>Ultra</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="shortcut icon" href="/favicon.ico" />
+          <link rel="stylesheet" href="/style.css" />
+        </head>
+        <body>
+          <main>
+            <h1>
+              <span></span>__<span></span>
+            </h1>
+            <p>
+              Welcome to{" "}
+              <strong>Ultra</strong>. This is a barebones starter for your web
+              app.
+            </p>
+          </main>
+        </body>
+      </html>
+    </TwindProvider>
   );
 }

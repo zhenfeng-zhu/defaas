@@ -5,12 +5,7 @@ const builder = createBuilder({
   serverEntrypoint: import.meta.resolve("./server.tsx"),
 });
 
-builder.ignore([
-  "./README.md",
-  "./importMap.json",
-  "./*.dev.json",
-  "./*.test.ts",
-]);
+builder.ignore("./README.md");
 
 // deno-lint-ignore no-unused-vars
 const result = await builder.build();
