@@ -12,7 +12,9 @@
     "aleph/react-server": "https://deno.land/x/aleph/runtime/react/server.ts",
     "react": "https://esm.sh/react@18.2.0",
     "react-dom": "https://esm.sh/react-dom@18.2.0",
-    "react-dom/": "https://esm.sh/react-dom@18.2.0/"
+    "react-dom/": "https://esm.sh/react-dom@18.2.0/",
+    "axiod": "https://deno.land/x/axiod/mod.ts",
+    "import": "https://deno.land/x/import/mod.ts"
   },
   "scopes": {}
 }
