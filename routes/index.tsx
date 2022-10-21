@@ -1,4 +1,11 @@
 import { Head } from "$fresh/runtime.ts";
+import { Handlers, PageProps } from "$fresh/server.ts";
+import { graphql } from "@/utils/shopify.ts";
+import { tw } from "twind";
+
+import { Footer } from "@/helpers/Footer.tsx";
+import { Header } from "@/components/Header.tsx";
+import { List, Product } from "../utils/types.ts";
 
 export default function Home() {
   return (
@@ -6,12 +13,16 @@ export default function Home() {
       <Head>
         <title>FaaS Based on Blockchain</title>
       </Head>
-      <div class="p-4 mx-auto max-w-screen-md">
-        <img
-          src="/nonce.png"
-          class="w-16 h-16"
-          alt="the fresh logo: a sliced lemon dripping with juice"
-        />
+      <img
+        src="/background.png"
+        alt="bg"
+        class="absolute top-0 left-0 w-full min-h-screen -z-10 bg-gray-900 object-cover"
+      />
+      <Header />
+      <div
+        class="w-11/12 max-w-5xl mx-auto mt-28"
+        aria-labelledby="information-heading"
+      >
         <p class="my-10">
           Welcome to NonceGeek Deno Micro FaaS: FaaS Based on Blockchain
         </p>
@@ -46,7 +57,15 @@ export default function Home() {
 
         <script src="https://gist.github.com/zhenfeng-zhu/51ceeefe042a23dc6c0f218ec415ff16.js">
         </script>
+
+        <h2 id="information-heading" class="sr-only">
+          Function List
+        </h2>
+        <div class="grid grid-cols-1 gap-8 sm:!gap-x-10 sm:!grid-cols-2 lg:!grid-cols-3 lg:!gap-x-12 lg:!gap-y-10">
+          WIP
+        </div>
       </div>
+      <Footer />
     </>
   );
 }

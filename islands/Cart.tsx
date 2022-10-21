@@ -5,15 +5,15 @@ interface CounterProps {
   start: number;
 }
 
-export default function Counter() {
+export default function Cart() {
   const { ethereum } = window;
 
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState("login");
   return (
-    <div>
-      <p>{count}</p>
+    <div class="flex justify-between">
       <button
-        class="mt-7 flex flex items-center rounded-md h-8 py-2 px-4 bg-gray-800 font-medium text-sm text-white"
+        type="button"
+        class="w-full bg-gray-700 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-gray-700"
         onClick={async () => {
           const accounts = await ethereum.request({
             method: "eth_requestAccounts",
@@ -23,7 +23,7 @@ export default function Counter() {
           setCount(account);
         }}
       >
-        eth
+        {count}
       </button>
     </div>
   );
