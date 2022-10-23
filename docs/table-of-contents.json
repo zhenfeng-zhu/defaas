@@ -8,16 +8,11 @@
   "components": {
     "title": "Components",
     "pages": [
-      ["schema", "Schema"],
-      ["lens", "Lens"],
-      ["context", "Context"],
-      ["namespaces", "Namespaces"],
-      ["query-engine", "Query Engine"],
-      ["power-tools", "Power Tools"]
+
     ]
   },
   "how-to": {
     "title": "How To",
-    "pages": [["query-with-comunica", "Query with Comunica"]]
+    "pages": []
   }
 }
