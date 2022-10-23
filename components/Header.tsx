@@ -34,10 +34,10 @@ const menuItems = [
     title: "Documentation",
     url: "/docs",
   },
-  //{
-  //  title: "Showcase",
-  //  url: "/showcase",
-  //},
+  {
+   title: "Upload",
+   url: "https://faas.noncegeek.com",
+  },
   {
     title: "GitHub",
     url: "https://github.com/zhenfeng-zhu/deno_mircro_faas",

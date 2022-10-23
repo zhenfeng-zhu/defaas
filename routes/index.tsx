@@ -26,7 +26,8 @@ export default function Home(ctx: PageProps<Data>) {
             Try it!
           </pre>
           <a
-            href="/docs"
+            href="https://restninja.io/"
+            target="_blank"
             class="block bg-red-800 rounded-r-lg text-white p-4 md:p-6"
           >
             <IconArrowRight />
