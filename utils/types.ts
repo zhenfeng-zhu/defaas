@@ -38,3 +38,11 @@ export interface ProductVariant {
   title: string;
   availableForSale: boolean;
 }
+
+export interface FuncMeta {
+  filename: string;
+  language: string;
+  content: string;
+  visiable: string;
+  author: string;
+}

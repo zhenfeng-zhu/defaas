@@ -19,7 +19,7 @@ export default function Counter(props: CounterProps) {
         >
           <div class={tw`w-full flex items-center justify-between gap-4`}>
             <hgroup>
-              <h2 class={tw`text-xl lg:!text-2xl font-semibold text-gray-800`}>
+              <h2 class={`text-xl lg:!text-2xl font-semibold text-gray-800`}>
                 {"Function Name"}
               </h2>
               <h3 class={tw`text-gray-500 text-base leading-tight`}>
@@ -43,8 +43,8 @@ export default function Counter(props: CounterProps) {
           class={tw` w-full bg-white rounded-xl border-2 border-gray-200 mt-12 lg:mt-0 lg:col-start-2 lg:row-span-2 lg:self-start`}
         >
           <div class={tw`mt-4 space-y-6`}>
-            This is code for {props.start} <br/>
-            - impor a from 0x01; <br/>
+            This is code for {props.start} <br />
+            - impor a from 0x01; <br />
             - console.log(123)
           </div>
         </div>
