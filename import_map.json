@@ -1,6 +1,5 @@
 {
   "imports": {
-    "@/": "./",
     "$fresh/": "https://deno.land/x/fresh@1.1.2/",
     "preact": "https://esm.sh/preact@10.11.0",
     "preact/": "https://esm.sh/preact@10.11.0/",
@@ -9,9 +8,6 @@
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.0.1",
     "twind": "https://esm.sh/twind@0.16.17",
     "twind/": "https://esm.sh/twind@0.16.17/",
-    "twind/aspect-ratio": "https://esm.sh/@twind/aspect-ratio@0.1.4",
-    "axiod": "https://deno.land/x/axiod/mod.ts",
-    "import": "https://deno.land/x/import/mod.ts",
-    "ethers": "https://cdn.skypack.dev/ethers"
+    "$std/": "https://deno.land/std@0.150.0/"
   }
 }

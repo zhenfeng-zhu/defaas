@@ -1,11 +1,6 @@
-# Deno micro faas for web3 project
+# LDkit website
 
-### Usage
+This is the LDkit website source. You can see it live at
+[ldkit.io](https://ldkit.io).
 
-Start the project:
-
-```
-deno task start
-```
-
-This will watch the project directory and restart as necessary.
+[![Made with Fresh](https://fresh.deno.dev/fresh-badge-dark.svg)](https://fresh.deno.dev)
