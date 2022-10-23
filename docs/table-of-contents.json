@@ -1,0 +1,23 @@
+{
+  "about-ldkit": {
+    "title": "About DeFaaS"
+  },
+  "getting-started": {
+    "title": "Getting Started"
+  },
+  "components": {
+    "title": "Components",
+    "pages": [
+      ["schema", "Schema"],
+      ["lens", "Lens"],
+      ["context", "Context"],
+      ["namespaces", "Namespaces"],
+      ["query-engine", "Query Engine"],
+      ["power-tools", "Power Tools"]
+    ]
+  },
+  "how-to": {
+    "title": "How To",
+    "pages": [["query-with-comunica", "Query with Comunica"]]
+  }
+}

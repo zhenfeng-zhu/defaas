@@ -34,7 +34,7 @@ export const handler: Handlers<Data> = {
     if (!entry) {
       return ctx.renderNotFound();
     }
-    const url = new URL(`../../../${entry.file}`, import.meta.url);
+    const url = new URL(`../../${entry.file}`, import.meta.url);
     const markdown = await Deno.readTextFile(url);
     const page = { ...entry, markdown };
     const resp = ctx.render({ page });

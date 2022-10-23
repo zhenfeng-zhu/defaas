@@ -19,7 +19,7 @@ function Logo() {
         class="flex items-center hover:text-gray-700 dark:hover:text-white pr-4"
       >
         <IconLDkit />
-        <span class="pb-1 pl-2">LDkit</span>
+        <span class="pb-1 pl-2">DeFaaS</span>
       </a>
     </h1>
   );
@@ -40,7 +40,7 @@ const menuItems = [
   //},
   {
     title: "GitHub",
-    url: "https://github.com/karelklima/ldkit",
+    url: "https://github.com/zhenfeng-zhu/deno_mircro_faas",
   },
 ] as const;
 
